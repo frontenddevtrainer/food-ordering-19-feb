@@ -1,4 +1,10 @@
+"use client";
+
+import { useCart } from "@foodordering/lib/context/cart";
+
 const Header = () => {
+  const { items } = useCart();
+
   return (
     <header className="bg-orange-600 text-white">
       <div className="container mx-auto flex justify-between items-center p-4">
@@ -25,6 +31,7 @@ const Header = () => {
                 Profile
               </a>
             </li>
+            {items && items.length > 0 && <li>Cart: {items.length}</li>}
           </ul>
         </nav>
       </div>

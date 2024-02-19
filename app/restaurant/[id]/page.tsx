@@ -1,5 +1,6 @@
-import connect from "@foodordering/app/db/db";
-import RestaurantModel from "@foodordering/app/db/model/restaurant";
+import connect from "@foodordering/lib/db/db";
+import RestaurantModel from "@foodordering/lib/db/model/restaurant";
+import AddToCart from "./add-to-cart";
 
 export interface IRestaurantsDetailPageProps {
   params: {
@@ -22,13 +23,11 @@ const RestaurantsDetailPage: React.FC<IRestaurantsDetailPageProps> = async ({
           doc.menu.length > 0 &&
           doc.menu.map((item) => {
             return (
-              <div className="bg-white shadow rounded p-4">
+              <div key={item.item} className="bg-white shadow rounded p-4">
                 <h3 className="font-bold">{item.item}</h3>
                 <p className="text-orange-500">{item.price}</p>
                 <p className="text-orange-500">{item.description}</p>
-                <button className="mt-2 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
-                  Add to Cart
-                </button>
+                <AddToCart item={item.item} />
               </div>
             );
           })}

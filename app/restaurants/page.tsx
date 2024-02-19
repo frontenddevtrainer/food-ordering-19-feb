@@ -1,5 +1,5 @@
-import connect from "@foodordering/app/db/db";
-import RestaurantModel from "@foodordering/app/db/model/restaurant";
+import connect from "@foodordering/lib/db/db";
+import RestaurantModel from "@foodordering/lib/db/model/restaurant";
 
 // RSC - React server component;
 const RestaurantsPage = async () => {
@@ -15,7 +15,7 @@ const RestaurantsPage = async () => {
           docs.length > 0 &&
           docs.map((doc) => {
             return (
-              <div className="bg-white shadow-md rounded p-4">
+              <div key={doc._id} className="bg-white shadow-md rounded p-4">
                 <h3 className="font-bold text-orange-500">{doc.name}</h3>
                 <p>{doc.location}</p>
                 <a
