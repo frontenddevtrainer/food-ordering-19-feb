@@ -1,169 +1,49 @@
 [
   {
+    "_id": { "$oid": "5e8dd953b5f2bc3a3e11e214" },
     "name": "The Orange Peel",
     "location": "123 Foodie Lane, Flavor Town",
     "cuisine": "Contemporary",
     "rating": 4.5,
-    "created_on": "2024-02-19T09:45:00Z",
+    "created_on": "2024-02-18T09:00:00Z",
     "menu": [
       {
+        "_id": { "$oid": "5e8dd953b5f2bc3a3e11e215" },
         "item": "Crispy Orange Chicken",
         "price": 15.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Crispy chicken with a tangy orange sauce."
+        "description": "Crispy chicken with a tangy orange sauce.",
+        "created_on": "2024-02-18T10:00:00Z"
       },
       {
+        "_id": { "$oid": "5e8dd953b5f2bc3a3e11e216" },
         "item": "Orange Peel Beef",
         "price": 17.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Spicy and tangy beef with dried orange peel."
+        "description": "Spicy and tangy beef with dried orange peel.",
+        "created_on": "2024-02-18T10:15:00Z"
       }
     ]
   },
   {
+    "_id": { "$oid": "5e8dd953b5f2bc3a3e11e217" },
     "name": "Vegan Delights",
     "location": "456 Plant St, Green City",
     "cuisine": "Vegan",
     "rating": 4.8,
-    "created_on": "2024-02-19T09:45:00Z",
+    "created_on": "2024-02-19T09:00:00Z",
     "menu": [
       {
+        "_id": { "$oid": "5e8dd953b5f2bc3a3e11e218" },
         "item": "Orange-infused Quinoa Salad",
         "price": 12.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Fresh salad with orange dressing over quinoa."
+        "description": "Fresh salad with orange dressing over quinoa.",
+        "created_on": "2024-02-19T09:30:00Z"
       },
       {
+        "_id": { "$oid": "5e8dd953b5f2bc3a3e11e219" },
         "item": "Vegan Orange Tofu",
         "price": 14.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Tofu marinated in orange sauce, served with veggies."
-      }
-    ]
-  },
-  {
-    "name": "Seafood Harbor",
-    "location": "789 Ocean Ave, Bay City",
-    "cuisine": "Seafood",
-    "rating": 4.6,
-    "created_on": "2024-02-19T09:45:00Z",
-    "menu": [
-      {
-        "item": "Orange Glazed Salmon",
-        "price": 18.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Salmon with a sweet and tangy orange glaze."
-      },
-      {
-        "item": "Citrus Shrimp Tacos",
-        "price": 16.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Shrimp with a citrusy orange and lime marinade in tacos."
-      }
-    ]
-  },
-  {
-    "name": "The Italian Corner",
-    "location": "101 Pasta Rd, Little Italy",
-    "cuisine": "Italian",
-    "rating": 4.7,
-    "created_on": "2024-02-19T09:45:00Z",
-    "menu": [
-      {
-        "item": "Orange Zest Linguine",
-        "price": 19.5,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Linguine in a creamy orange zest sauce."
-      },
-      {
-        "item": "Risotto al Arancia",
-        "price": 20.0,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Creamy risotto with a hint of orange."
-      }
-    ]
-  },
-  {
-    "name": "Burger Binge",
-    "location": "202 Beef Blvd, Burger Town",
-    "cuisine": "American",
-    "created_on": "2024-02-19T09:45:00Z",
-    "rating": 4.2,
-    "menu": [
-      {
-        "item": "Orange BBQ Burger",
-        "price": 12.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Juicy burger with orange-infused BBQ sauce."
-      },
-      {
-        "item": "Citrus Fries",
-        "price": 5.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Fries with a sprinkle of orange zest seasoning."
-      }
-    ]
-  },
-  {
-    "name": "Sushi Sunrise",
-    "location": "303 Sashimi St, Oceanview",
-    "cuisine": "Japanese",
-    "rating": 4.9,
-    "created_on": "2024-02-19T09:45:00Z",
-    "menu": [
-      {
-        "item": "Orange Dragon Roll",
-        "price": 15.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Sushi roll with salmon, avocado, and a touch of orange."
-      },
-      {
-        "item": "Citrus Ponzu Sashimi",
-        "price": 18.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Assorted sashimi with citrus ponzu sauce."
-      }
-    ]
-  },
-  {
-    "name": "Curry Kingdom",
-    "location": "404 Spice Ln, Curryville",
-    "cuisine": "Indian",
-    "created_on": "2024-02-19T09:45:00Z",
-    "rating": 4.5,
-    "menu": [
-      {
-        "item": "Orange Masala Chicken",
-        "price": 17.5,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Chicken curry with a hint of orange."
-      },
-      {
-        "item": "Citrus Naan",
-        "price": 3.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Naan bread with a zest of orange."
-      }
-    ]
-  },
-  {
-    "name": "Taco Twists",
-    "location": "505 Fiesta Rd, Tacotown",
-    "cuisine": "Mexican",
-    "created_on": "2024-02-19T09:45:00Z",
-    "rating": 4.3,
-    "menu": [
-      {
-        "item": "Orange Marinated Carnitas",
-        "price": 14.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Slow-cooked pork carnitas with an orange marinade."
-      },
-      {
-        "item": "Citrus Guacamole",
-        "price": 6.99,
-        "created_on": "2024-02-19T09:45:00Z",
-        "description": "Guacamole with a twist of lime and orange."
+        "description": "Tofu marinated in orange sauce, served with veggies.",
+        "created_on": "2024-02-19T09:45:00Z"
       }
     ]
   }
