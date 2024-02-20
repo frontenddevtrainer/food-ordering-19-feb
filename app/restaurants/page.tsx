@@ -1,5 +1,5 @@
 import connect from "@foodordering/lib/db/db";
-import RestaurantModel from "@foodordering/lib/db/model/restaurant";
+import { RestaurantModel } from "@foodordering/lib/db/model/restaurant";
 
 // RSC - React server component;
 const RestaurantsPage = async () => {

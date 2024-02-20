@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@foodordering/lib/context/cart";
+import Link from "next/link";
 
 const Header = () => {
   const { items } = useCart();
@@ -31,7 +32,11 @@ const Header = () => {
                 Profile
               </a>
             </li>
-            {items && items.length > 0 && <li>Cart: {items.length}</li>}
+            {items && items.length > 0 && (
+              <li>
+                <Link href={"/cart"}>Cart: {items.length}</Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>
