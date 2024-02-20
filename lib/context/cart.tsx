@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { IRestaurantMenu } from "../db/model/restaurant";
 
 interface ICartContext {
@@ -22,8 +22,16 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider: React.FC<ICartProvider> = ({ children }) => {
   const [items, setItems] = useState<IRestaurantMenu[]>([]);
 
+  useEffect(()=>{
+    const itemListString = window.localStorage.getItem("cart") || "[]";
+    const itemList = JSON.parse(itemListString);
+    setItems(itemList);
+  }, [])
+
   const addToCart = (item: IRestaurantMenu) => {
-    setItems([...items, item]);
+    const updatedItems = [...items, item]
+    setItems(updatedItems);
+    window.localStorage.setItem("cart", JSON.stringify(updatedItems))
   };
 
   const removeFromCart = (itemname: IRestaurantMenu) => {
