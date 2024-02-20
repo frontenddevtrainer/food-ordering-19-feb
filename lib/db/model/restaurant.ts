@@ -1,9 +1,11 @@
 import mongoose, { Document, Model, Schema } from "mongoose";
 
 export interface IRestaurantMenu {
+  [x: string]: any;
   item: string;
   price: number;
   description: string;
+  _id: string;
 }
 
 export interface IRestaurant extends Document {
@@ -28,12 +30,16 @@ const RestaurantSchema: Schema = new Schema({
   location: String,
   cuisine: String,
   rating: String,
-  menu: [RestaurantMenuSchema],
+  menu: [{ type: Schema.Types.ObjectId, ref: "menuitem" }],
   created_on: { type: Date, default: new Date() },
 });
+
+const MenuItemModel = (Model<IRestaurantMenu> =
+  mongoose.models.menuitem ||
+  mongoose.model<IRestaurant>("menuitem", RestaurantMenuSchema));
 
 const RestaurantModel: Model<IRestaurant> =
   mongoose.models.restaurants ||
   mongoose.model<IRestaurant>("restaurants", RestaurantSchema, "restaurants");
 
-export default RestaurantModel;
+export { RestaurantModel, MenuItemModel };

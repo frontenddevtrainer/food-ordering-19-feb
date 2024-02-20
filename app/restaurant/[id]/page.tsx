@@ -1,5 +1,8 @@
 import connect from "@foodordering/lib/db/db";
-import RestaurantModel from "@foodordering/lib/db/model/restaurant";
+import {
+  RestaurantModel,
+  IRestaurantMenu,
+} from "@foodordering/lib/db/model/restaurant";
 import AddToCart from "./add-to-cart";
 
 export interface IRestaurantsDetailPageProps {
@@ -13,7 +16,7 @@ const RestaurantsDetailPage: React.FC<IRestaurantsDetailPageProps> = async ({
 }) => {
   const { id } = params;
   await connect();
-  const doc = await RestaurantModel.findById(id);
+  const doc = await RestaurantModel.findById(id).populate("menu").exec();
 
   return (
     <div className="container mx-auto p-4">
@@ -22,12 +25,15 @@ const RestaurantsDetailPage: React.FC<IRestaurantsDetailPageProps> = async ({
         {doc?.menu &&
           doc.menu.length > 0 &&
           doc.menu.map((item) => {
+            const newItem = { ...item.toObject() };
+            newItem._id = item._id.toString();
+
             return (
-              <div key={item.item} className="bg-white shadow rounded p-4">
-                <h3 className="font-bold">{item.item}</h3>
-                <p className="text-orange-500">{item.price}</p>
-                <p className="text-orange-500">{item.description}</p>
-                <AddToCart item={item.item} />
+              <div key={newItem._id} className="bg-white shadow rounded p-4">
+                <h3 className="font-bold">{newItem.item}</h3>
+                <p className="text-orange-500">{newItem.price}</p>
+                <p className="text-orange-500">{newItem.description}</p>
+                <AddToCart menu={newItem} />
               </div>
             );
           })}

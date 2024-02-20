@@ -1,9 +1,10 @@
 import { createContext, useContext, useState } from "react";
+import { IRestaurantMenu } from "../db/model/restaurant";
 
 interface ICartContext {
-  items: string[];
-  removeFromCart(itemname: string): void;
-  addToCart(item: string): void;
+  items: IRestaurantMenu[];
+  removeFromCart(itemname: IRestaurantMenu): void;
+  addToCart(item: IRestaurantMenu): void;
 }
 
 const CartContext = createContext<ICartContext>({
@@ -19,16 +20,16 @@ interface ICartProvider {
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider: React.FC<ICartProvider> = ({ children }) => {
-  const [items, setItems] = useState<string[]>([]);
+  const [items, setItems] = useState<IRestaurantMenu[]>([]);
 
-  const addToCart = (item: string) => {
+  const addToCart = (item: IRestaurantMenu) => {
     setItems([...items, item]);
   };
 
-  const removeFromCart = (itemname: string) => {
+  const removeFromCart = (itemname: IRestaurantMenu) => {
     setItems(
       items.filter((item) => {
-        item !== itemname;
+        item._id !== itemname._id;
       })
     );
   };
