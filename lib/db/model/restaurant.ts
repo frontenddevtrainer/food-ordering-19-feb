@@ -36,7 +36,7 @@ const RestaurantSchema: Schema = new Schema({
 
 const MenuItemModel = (Model<IRestaurantMenu> =
   mongoose.models.menuitem ||
-  mongoose.model<IRestaurant>("menuitem", RestaurantMenuSchema));
+  mongoose.model<IRestaurantMenu>("menuitem", RestaurantMenuSchema));
 
 const RestaurantModel: Model<IRestaurant> =
   mongoose.models.restaurants ||

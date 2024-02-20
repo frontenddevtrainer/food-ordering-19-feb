@@ -5,12 +5,14 @@ interface ICartContext {
   items: IRestaurantMenu[];
   removeFromCart(itemname: IRestaurantMenu): void;
   addToCart(item: IRestaurantMenu): void;
+  clearCart(): void;
 }
 
 const CartContext = createContext<ICartContext>({
   items: [],
   removeFromCart: () => {},
   addToCart: () => {},
+  clearCart: () => {},
 });
 
 interface ICartProvider {
@@ -22,16 +24,16 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider: React.FC<ICartProvider> = ({ children }) => {
   const [items, setItems] = useState<IRestaurantMenu[]>([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const itemListString = window.localStorage.getItem("cart") || "[]";
     const itemList = JSON.parse(itemListString);
     setItems(itemList);
-  }, [])
+  }, []);
 
   const addToCart = (item: IRestaurantMenu) => {
-    const updatedItems = [...items, item]
+    const updatedItems = [...items, item];
     setItems(updatedItems);
-    window.localStorage.setItem("cart", JSON.stringify(updatedItems))
+    window.localStorage.setItem("cart", JSON.stringify(updatedItems));
   };
 
   const removeFromCart = (itemname: IRestaurantMenu) => {
@@ -42,8 +44,15 @@ export const CartProvider: React.FC<ICartProvider> = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setItems([]);
+    window.localStorage.setItem("cart", "[]");
+  };
+
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ items, addToCart, removeFromCart, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );
