@@ -30,13 +30,13 @@ const RestaurantSchema: Schema = new Schema({
   location: String,
   cuisine: String,
   rating: String,
-  menu: [{ type: Schema.Types.ObjectId, ref: "menuitem" }],
+  menu: [RestaurantMenuSchema],
   created_on: { type: Date, default: new Date() },
 });
 
-const MenuItemModel = (Model<IRestaurantMenu> =
-  mongoose.models.menuitem ||
-  mongoose.model<IRestaurantMenu>("menuitem", RestaurantMenuSchema));
+const MenuItemModel: Model<IRestaurantMenu> =
+  mongoose.models.menu ||
+  mongoose.model<IRestaurantMenu>("menu", RestaurantMenuSchema);
 
 const RestaurantModel: Model<IRestaurant> =
   mongoose.models.restaurants ||

@@ -18,6 +18,8 @@ const RestaurantsDetailPage: React.FC<IRestaurantsDetailPageProps> = async ({
   await connect();
   const doc = await RestaurantModel.findById(id).populate("menu").exec();
 
+  console.log(doc);
+
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-3xl font-bold text-orange-600">{doc?.name}</h2>
