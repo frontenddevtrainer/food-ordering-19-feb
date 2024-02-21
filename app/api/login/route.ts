@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     dbconnect();
     const user = await UserModel.findOne({ email });
     if (user && bcrypt.compareSync(password, user.password)) {
-      const token = await new SignJWT({ id: user._id })
+      const token = await new SignJWT({ id: user._id, is_admin: user.is_admin })
         .setProtectedHeader({ alg: "HS256" })
         .setExpirationTime("1h")
         .sign(new TextEncoder().encode(process.env.SECRET_KEY));

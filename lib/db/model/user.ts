@@ -7,6 +7,6 @@ const UserSchema = new Schema({
   is_admin: { type: Boolean, default: false, required: true },
 });
 
-const UserModel = mongoose.models.users || model("users", UserSchema, "users");
+const UserModel = mongoose.models?.users || model("users", UserSchema, "users");
 
 export { UserModel, UserSchema };
