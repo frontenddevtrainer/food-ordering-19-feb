@@ -13,7 +13,10 @@ export async function PATCH(
     dbconnect();
     const id = params.id;
     const doc = await OrderModel.findByIdAndUpdate(id, { status: "completed" });
-    return NextResponse.json({ message: "order updated successfully" });
+    return NextResponse.json({
+      message: "order updated successfully",
+      status: "completed",
+    });
   } catch (error) {
     console.log(error);
 

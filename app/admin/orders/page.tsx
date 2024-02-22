@@ -1,5 +1,6 @@
 import { IOrder, OrderModel } from "@foodordering/lib/db/model/order";
 import MarkAsCompleteButton from "./mark-as-complete";
+import { useState } from "react";
 
 function ordersList(docs: IOrder[]) {
   if (!docs || (docs && docs.length === 0)) {
@@ -18,9 +19,8 @@ function ordersList(docs: IOrder[]) {
           <td>{order._id}</td>
           <td>{order.items.length}</td>
           <td>{order.total}</td>
-          <td>{order.status}</td>
           <td>
-            <MarkAsCompleteButton order={order._id} />
+            <MarkAsCompleteButton order={order._id} status={order.status} />
           </td>
         </tr>
       );
