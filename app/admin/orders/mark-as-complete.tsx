@@ -2,7 +2,7 @@
 
 import { IOrder } from "@foodordering/lib/db/model/order";
 import { useState } from "react";
-
+import Button from "react-bootstrap/Button";
 interface Props {
   order: IOrder["_id"];
   status: string;
@@ -26,13 +26,13 @@ const MarkAsCompleteButton: React.FC<Props> = ({ order, status }) => {
   return (
     <p>
       Status: {orderStatus}
-      <button
+      <Button
         onClick={() => {
           markAsComplete(order);
         }}
       >
         Mark as Complete
-      </button>
+      </Button>
     </p>
   );
 };

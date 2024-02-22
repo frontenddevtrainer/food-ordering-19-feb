@@ -1,6 +1,7 @@
 import { IOrder, OrderModel } from "@foodordering/lib/db/model/order";
 import MarkAsCompleteButton from "./mark-as-complete";
-import { useState } from "react";
+import dbconnect from "@foodordering/lib/db/db";
+import { Table } from "react-bootstrap";
 
 function ordersList(docs: IOrder[]) {
   if (!docs || (docs && docs.length === 0)) {
@@ -30,18 +31,22 @@ function ordersList(docs: IOrder[]) {
 
 // RSC
 const AdminOrdersPage = async () => {
-  const docs = await OrderModel.find({});
+  dbconnect();
+  const docs = await OrderModel.find({ is_deleted: { $exists: false } });
 
   return (
     <div>
-      <table>
+      <Table className="striped bordered hover">
         <thead>
           <tr>
             <th>Order ID</th>
+            <th>Items</th>
+            <th>Total Price</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>{ordersList(docs)}</tbody>
-      </table>
+      </Table>
     </div>
   );
 };
