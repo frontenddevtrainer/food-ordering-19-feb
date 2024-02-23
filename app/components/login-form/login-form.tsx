@@ -32,15 +32,17 @@ const LoginForm = () => {
       <form onSubmit={submitHandler}>
         <h3>Login</h3>
         <p>
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             className="text-black"
             onChange={(e) => setEmail(e.target.value)}
           />
         </p>
         <p>
-          <label>Password</label>
+          <label htmlFor="password">Password</label>
           <input
+            id="password"
             className="text-black"
             onChange={(e) => setPassword(e.target.value)}
           />
