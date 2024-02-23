@@ -14,7 +14,7 @@ const LoginForm = () => {
       setStatus("started");
       const response = await fetch("http://localhost:3000/api/login", {
         method: "POST",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email, password: password }),
         headers: {
           "content-type": "application/json",
         },
