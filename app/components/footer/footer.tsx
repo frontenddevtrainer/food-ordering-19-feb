@@ -1,8 +1,8 @@
-const Footer = () => {
+const Footer = ({ year = "2024" }: { year?: string }) => {
   return (
     <footer className="bg-orange-600 text-white mt-8">
       <div className="container mx-auto flex justify-between items-center p-4">
-        <p>&copy; 2024 Ordering App. All rights reserved.</p>
+        <p>{year} Ordering App. All rights reserved.</p>
         <nav>
           <ul className="flex space-x-4">
             <li>
@@ -27,4 +27,4 @@ const Footer = () => {
   );
 };
 
-export default Footer
+export default Footer;
